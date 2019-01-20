@@ -1,3 +1,3 @@
-U ovoj grani ću uređivati svoj dio seminara; Xy-pic, Strelice, Linije, Kružnice i Formule.
+U ovoj ću grani uređivat svoj dio seminara; Xy-pic.
 
 -Lorena Pekić
