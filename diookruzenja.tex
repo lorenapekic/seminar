@@ -1,0 +1,213 @@
+\section{Ovali}
+
+Naredba
+\verb|\put(x, y){\oval(w, h)}|
+ili
+\verb|\put(x, y){\oval(w, h)[pozicija]}|
+stvaraju oval koji je centriran na (x,y) točki i ima širinu \textbf{w} i visinu \textbf{h}. Argumenti b, t, l, r označuju dolje, gore, lijevo, desno i mogu se kombinirati. Jedinice za ovaj parametar postavljaju se po duljini \verb|\setlength{\unitlength}{1cm}|. Drugi parametar nije obavezan i uspostavlja koordinate donjeg lijevog kuta.
+
+Debljina crta se može kontrolirati uz pomoć naredbi \verb|\linethickness{''lenght''} ili sa \thinlines i \thicklines.|
+Dok \verb|\linethickness{''lenght''}| se odnosi samo na ravne crte to jest horizontalne i vertikalne \verb|\thinlines i \thicklines| se odnosi na sve vrste crta pa čak i na ovale i krugove.
+
+\setlength{\unitlength}{0.75cm}
+\begin{picture}(6,4)
+\linethickness{0.075mm}
+\multiput(0,0)(1,0){7}%
+{\line(0,1){4}}
+\multiput(0,0)(0,1){5}%
+{\line(1,0){6}}
+\thicklines
+\put(2,3){\oval(3,1.8)}
+\thinlines
+\put(3,2){\oval(3,1.8)}
+\thicklines
+\put(2,1){\oval(3,1.8)[tl]}
+\put(4,1){\oval(3,1.8)[b]}
+\put(4,3){\oval(3,1.8)[r]}
+\put(3,1.5){\oval(1.8,0.4)}
+\end{picture}
+
+\begin{verbatim}
+\setlength{\unitlength}{0.75cm}
+\begin{picture}(6,4)
+\linethickness{0.075mm}
+\multiput(0,0)(1,0){7}%
+{\line(0,1){4}}
+\multiput(0,0)(0,1){5}%
+{\line(1,0){6}}
+\thicklines
+\put(2,3){\oval(3,1.8)}
+\thinlines
+\put(3,2){\oval(3,1.8)}
+\thicklines
+\put(2,1){\oval(3,1.8)[tl]}
+\put(4,1){\oval(3,1.8)[b]}
+\put(4,3){\oval(3,1.8)[r]}
+\put(3,1.5){\oval(1.8,0.4)}
+\end{picture}
+\end{verbatim}
+
+
+\verb|\put (6,2.2) {\oval (4,2) [R]}|
+naredba će nacrtati ovalni centar u točki 4,2. Parametar \verb|[r]| nije obavezan, može se koristiti r, l, t i b za prikaz desnog, lijevog, gornjeg ili donjeg dijela ovala. Ako ga nema, nacrtat će se cijeli oval.
+
+Naredba \verb|\put(2,2.2){\circle{2}}|
+crta kružnicu centriranu u točki (2,2,2) i čiji je promjer 2.
+
+\section{Naredbe multipoint i linethickness}
+Naredbe \verb|\multipoint i \linethickness| imaju četiri argumenata: početna točka, tranzlacija vektora od jedne točke do druge, broj objekata i objekt koji se mora nacrtati.
+
+
+\setlength{\unitlength}{2mm}
+\begin{picture}(30,20)
+\linethickness{0.075mm}
+\multiput(0,0)(1,0){26}%
+{\line(0,1){20}}
+\multiput(0,0)(0,1){21}%
+{\line(1,0){25}}
+\linethickness{0.15mm}
+\multiput(0,0)(5,0){6}%
+{\line(0,1){20}}
+\multiput(0,0)(0,5){5}%
+{\line(1,0){25}}
+\linethickness{0.3mm}
+\multiput(5,0)(10,0){2}%
+{\line(0,1){20}}
+\multiput(0,5)(0,10){2}%
+{\line(1,0){25}}
+\end{picture}
+
+\begin{verbatim}
+\setlength{\unitlength}{2mm}
+\begin{picture}(30,20)
+\linethickness{0.075mm}
+\multiput(0,0)(1,0){26}%
+{\line(0,1){20}}
+\multiput(0,0)(0,1){21}%
+{\line(1,0){25}}
+\linethickness{0.15mm}
+\multiput(0,0)(5,0){6}%
+{\line(0,1){20}}
+\multiput(0,0)(0,5){5}%
+{\line(1,0){25}}
+\linethickness{0.3mm}
+\multiput(5,0)(10,0){2}%
+{\line(0,1){20}}
+\multiput(0,5)(0,10){2}%
+{\line(1,0){25}}
+\end{picture}
+\end{verbatim}
+
+\section{Kombiniranje crta, točaka i teksta}
+
+Više jednostavnih elemenata tvori složeniju sliku.
+
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(12,4)
+\thicklines
+\put(8,3.3){{\footnotesize $3$-simplex}}
+\put(9,3){\circle*{0.1}}
+\put(8.3,2.9){$a_2$}
+\put(8,1){\circle*{0.1}}
+\put(7.7,0.5){$a_0$}
+\put(10,1){\circle*{0.1}}
+\put(9.7,0.5){$a_1$}
+\put(11,1.66){\circle*{0.1}}
+\put(11.1,1.5){$a_3$}
+\put(9,3){\line(3,-2){2}}
+\put(10,1){\line(3,2){1}}
+\put(8,1){\line(1,0){2}}
+\put(8,1){\line(1,2){1}}
+\put(10,1){\line(-1,2){1}}
+\end{picture}
+
+\begin{verbatim}
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(12,4)
+\thicklines
+\put(8,3.3){{\footnotesize $3$-simplex}}
+\put(9,3){\circle*{0.1}}
+\put(8.3,2.9){$a_2$}
+\put(8,1){\circle*{0.1}}
+\put(7.7,0.5){$a_0$}
+\put(10,1){\circle*{0.1}}
+\put(9.7,0.5){$a_1$}
+\put(11,1.66){\circle*{0.1}}
+\put(11.1,1.5){$a_3$}
+\put(9,3){\line(3,-2){2}}
+\put(10,1){\line(3,2){1}}
+\put(8,1){\line(1,0){2}}
+\put(8,1){\line(1,2){1}}
+\put(10,1){\line(-1,2){1}}
+\end{picture}
+\end{verbatim}
+
+
+U ovom primjeru nekoliko crta i točaka je spojeno međusobno da stvori sliku, zatim dodajemo tekst kojime obilježavamo svaki element slike. Sljedeće su naredbe korištene:
+
+\verb|\thicklines|
+Ovo mijenja debljinu crta, čineći ih malo debljima isto tako možemo koristiti \verb|\thinlines| naredbu koja ima suprotni učinak.
+
+\verb|\put(8,3.3){{\footnotesize $3$-simplex}}|
+Tekst "3-simplex" je umeće u točku (8,3,3), veličina slova je namještena na \textit{footnotesize}. Ista naredba se koristi da označi svaku točku.
+
+\verb|\put(9,3){\circle*{0.1}}|
+Ova naredba crta puni krug koji je centriran u točki (9,3) i ima promjer 0.1. Promjer je tako malen da se kružnica koristi za označavanje točke.
+
+\verb|\put(10,1){\line(3,2){1}}|
+Crta ravnu crtu čiji početak je u točki (10,1), dužina je 1, a smjer je (3,2). Kao što se može vidjeti crte to jest pravci koji imaju nagib su teži za nacrtati od običnih crta i pravaca.
+
+Vektori ili strelice se mogu korisiti isto tako u slikama, evo primjera:
+
+\setlength{\unitlength}{0.20mm}
+\begin{picture}(400,250)
+\put(75,10){\line(1,0){130}}
+\put(75,50){\line(1,0){130}}
+\put(75,200){\line(1,0){130}}
+\put(120,200){\vector(0,-1){150}}
+\put(190,200){\vector(0,-1){190}}
+\put(97,120){$\alpha$}
+\put(170,120){$\beta$}
+\put(220,195){upper state}
+\put(220,45){lower state 1}
+\put(220,5){lower state 2}
+\end{picture}
+
+\begin{verbatim}
+\setlength{\unitlength}{0.20mm}
+\begin{picture}(400,250)
+\put(75,10){\line(1,0){130}}
+\put(75,50){\line(1,0){130}}
+\put(75,200){\line(1,0){130}}
+\put(120,200){\vector(0,-1){150}}
+\put(190,200){\vector(0,-1){190}}
+\put(97,120){$\alpha$}
+\put(170,120){$\beta$}
+\put(220,195){upper state}
+\put(220,45){lower state 1}
+\put(220,5){lower state 2}
+\end{picture}
+\end{verbatim}
+
+
+\section{Bezierove krivulje}
+
+\textit{Bezierove krivulje} su posebna vrsta krivulja koje se crtaju koristeći 3 različita parametra, jedna početna točka i jedna završna, a uz to još jedna točka koja određuje koliko je krivulja "iskrivljena".
+
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(10,5)
+\thicklines
+\qbezier(1,1)(5,5)(9,0.5)
+\put(2,1){{Bézier curve}}
+\end{picture}
+
+\begin{verbatim}
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(10,5)
+\thicklines
+\qbezier(1,1)(5,5)(9,0.5)
+\put(2,1){{Bézier curve}}
+\end{picture}
+\end{verbatim}
+
+Naredba  \verb|\qbezier| je unutar \verb|\put| naredbe. Parametri koji moraju biti određeni su početna točka, točka kontrole i završna točka.
