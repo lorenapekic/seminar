@@ -10,7 +10,7 @@
 \section{Linije}
 
 Linije se crtaju pomoću naredbe:
-\verb|\put(x, y){ \line(x1, y1){length} }|
+\verb|\put(x, y){ \line(x1, y1){dužina} }|
 
 
 \begin{center}
@@ -115,13 +115,13 @@ Za strelice su komponente vektorskog smjera još uže ograničene nego za crte, 
 \end{verbatim}
 
 \newpage
-\section{Circles}
+\section{Kružnice}
 
 
 
 \justify
 Naredbom
-\verb|\put(x, y){\circle{diameter}}| crta se kružnica sa središtem (x, y) i promjerom opisanim u \verb|{diameter}|. Okruženje slike ( ili \textit{The picture environment}) samo dopušta promjere do otprilike 14mm, iako nisu ni svi promjeri ispod te granice mogući.\\ Naredba \verb|\circle*| proizvodi diskove, odnosno ispunjene kružnice. Kao i kod linija možda će biti potrebno kod nekih kružnica koristiti dodatne pakete kao npr. \textit{eepic}, \textit{pstricks}, ili \textit{tikz}.
+\verb|\put(x, y){\circle{promjer}}| crta se kružnica sa središtem (x, y) i promjerom opisanim u vitičastim zagradama. Okruženje slike ( ili \textit{The picture environment}) samo dopušta promjere do otprilike 14mm, iako nisu ni svi promjeri ispod te granice mogući.\\ Naredba \verb|\circle*| proizvodi diskove, odnosno ispunjene kružnice. Kao i kod linija možda će biti potrebno kod nekih kružnica koristiti dodatne pakete kao npr. \textit{eepic}, \textit{pstricks}, ili \textit{tikz}.
 
 \setlength{\unitlength}{2mm}
 \begin{picture}(60, 40)
