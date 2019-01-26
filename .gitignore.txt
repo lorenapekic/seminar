@@ -1,0 +1,12 @@
+*.dvi
+*.toc
+*.aux
+*.log
+*.nav
+*.pre
+*.snm
+*.vrb
+*.xyc
+*.out
+*.synctex*
+*.blg
