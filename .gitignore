@@ -1,0 +1,9 @@
+*.dvi
+*.toc
+*.aux
+*.log
+*.nav
+*.pre
+*.snm
+*.vrb
+*.xyc
