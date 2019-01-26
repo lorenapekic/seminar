@@ -1,4 +1,3 @@
-*.pdf
 *.bbl
 *.dvi
 *.toc
@@ -9,3 +8,5 @@
 *.snm
 *.vrb
 *.xyc
+*.out
+*.synctex*
