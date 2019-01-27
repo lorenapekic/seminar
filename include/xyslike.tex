@@ -1,0 +1,163 @@
+\section{Uvod u Xy-pic}
+
+\textit{Xy-pic} je specijalan paket za slaganje grafikona i crtanje dijagrama koji se koristi principom logičke kompozicije vizualnih komponenti. Strukturiran je kao nekoliko modula, od kojih svaki definira tekstualnu notaciju za određenu vrstu grafičkog objekta ili strukture. Primjeri objekata su strelice, krivulje i okviri. Ti objekti mogu biti organizirani u matrici, usmjerenom grafikonu, stazi, poligonu, čvorovima i strukturi 2-ćelije. Da bi se \textit{Xy-pic} koristio, treba se dodati sljedeći paket u preambulu dokumenta:
+
+\begin{verbatim}
+\usepackage[all]{xy}
+\end{verbatim}
+
+\justify
+\textbf{All} znači da se učitava veliki standardni skup funkcija iz \textit{Xy-pic}, pogodne za razvoj ovakve vrste dijagrama o kojima se ovdje raspravlja. \\
+Glavni način crtanja \textit{Xy-pic dijagrama} je preko matrice-orijentiranog platna, gdje je svaki element dijagrama smješten u slot matrice kao što se vidi u sljedećim primjerima. \\
+
+\begin{center}
+\begin{verbatim}
+\begin{displaymath}
+    \xymatrix{ A  & B \\
+               D  & C }
+\end{displaymath}
+\end{verbatim}
+
+\begin{displaymath}
+    \xymatrix{ A  & B \\
+               D  & C  }
+\end{displaymath}
+\end{center}
+\justify
+\verb|\xymatric| naredba mora biti korištena u matematičkom okruženju. Ovdje smo odredili dva retka i dva stupca.
+\newpage
+
+\section{Strelice u Xy-matrici}
+
+ Da bi matrica bila dijagram moramo dodati strelice pomoću \verb|\ar[]| naredbe. Argumenti unutar \verb| [ i ]| su smjer kojim strelica treba pokazivati (gore - 'u', dolje - 'd', desno - 'r' i lijevo - 'l'). \\
+
+\begin{verbatim}
+\begin{displaymath}
+    \xymatrix{
+        A \ar[d]  \ar[r] & B  \\
+        D                       & C \ar[u] \ar[l] }
+\end{displaymath}
+\end{verbatim}
+
+
+
+\begin{displaymath}
+    \xymatrix{
+        A \ar[d] \ar[r] & B \\
+        D    & C \ar[u] \ar[l] }
+\end{displaymath}
+
+
+\subsection{Dijagonale i oznake}
+\justify
+Da bi napravili dijagonale, potrebno je koristiti više od jednog smjera, a to se postiže kombiniranjem argumenata, npr. dolje desno - 'dr', gore lijevo - 'ul' itd. Ponavljanjem naredbe za smjer može se napraviti i veća strelica.
+
+
+\begin{verbatim}
+\begin{displaymath}
+    \xymatrix{
+        A & B & C & D \\
+        E \ar[u] \ar[ur] \ar[urr] \ar[urrr]      &  &  & }
+\end{displaymath}
+\end{verbatim}
+
+\begin{displaymath}
+    \xymatrix{
+        A & B & C & D \\
+        E \ar[u] \ar[ur] \ar[urr] \ar[urrr]      &  &  & }
+\end{displaymath}
+\newpage
+Možemo nacrtati i još zanimljivije dijagrame dodavanjem oznaka strelicama. Da bismo to učinili, koristimo uobičajene naredbe za eksponent i indeks, gdje \verb|^{eksponent}| stavlja oznaku na vrhu strelice, a \verb|_{indeks}| ju stavlja ispod strelice. Također je moguće staviti oznaku unutar strelice pomoću okomite crte.
+
+\begin{verbatim}
+\begin{displaymath}
+    \xymatrix{
+        A \ar[d]_g \ar[r]^{f} & D \ar[d]^{g'} & \ar[l]|d E \\
+        B \ar[r]_{f'}       & C \ar[r]|b &  F \ar[u]|a  }
+\end{displaymath}
+\end{verbatim}
+
+\begin{displaymath}
+    \xymatrix{
+        A \ar[d]_g \ar[r]^{f} & D \ar[d]^{g'} & \ar[l]|d E \\
+        B \ar[r]_{f'}       & C \ar[r]|b &  F \ar[u]|a }
+\end{displaymath}
+\newpage
+\subsection{Izgled strelica}
+\justify
+Strelicama u xy-matrici možemo i mijenjati izgled kako bi ih lakše raspoznavali. To se može postići na različite načine. U naredbi \verb|@stil{rep tijelo glava}| \textit{stil} može predstavljati \verb|_, ^, 2 ili 3| koji mijenjaju izgled tijela strelice, dok \textit{rep, tijelo i glava} predstavljaju izgled pojedinog dijela strelice, što se može vidjeti u sljedećim primjerima.
+
+\begin{verbatim}
+\begin{displaymath}
+    \xymatrix{
+        \bullet\ar@_{<->}[rr]     && \bullet\\
+        \bullet\ar@^{>.<}[rr]     && \bullet\\
+        \bullet\ar@{~)}[rr]     && \bullet\\
+        \bullet\ar@{=(}[rr]     && \bullet\\
+        \bullet\ar@{||~/}[rr]     && \bullet\\
+        \bullet\ar@{^{(}->}[rr] && \bullet\\
+        \bullet\ar@2{->}[rr]    && \bullet\\
+        \bullet\ar@3{~>}[rr]    && \bullet }
+\end{displaymath}
+\end{verbatim}
+
+\begin{displaymath}
+    \xymatrix{
+        \bullet\ar@_{<->}[rr]     && \bullet\\
+        \bullet\ar@^{>.<}[rr]     && \bullet\\
+        \bullet\ar@{~)}[rr]     && \bullet\\
+        \bullet\ar@{=(}[rr]     && \bullet\\
+        \bullet\ar@{||~/}[rr]     && \bullet\\
+        \bullet\ar@{^{(}->}[rr] && \bullet\\
+        \bullet\ar@2{->}[rr]    && \bullet\\
+        \bullet\ar@3{~>}[rr]    && \bullet }
+\end{displaymath}
+\newpage
+\subsection{Zakrivljenost strelica}
+\justify
+Xy-pic nudi mnogo načina na koje se može utjecati na zakrivljenje strelica, odnosno krivulja. Može se dodati dimenzija "pc" koja se umeće odmah nakon \verb| ^ | ili \verb| _ | ,ako je poželjna veća ili manja zakrivljenost. Također se može u naredbi \verb|\ar@(<izlaz>,<ulaz>)| navesti argument (u, d, l ili r) u \verb|<izlaz>| kojim određujemo na kojoj će strani iz elementa "izlazit" odnosno početi strelica, te u \verb|<ulaz>| na kojoj će strani "ulazit" strelica u element. 
+
+
+
+\begin{verbatim}
+$$
+    \xymatrix{
+        \bullet \ar@/^1pc/[r]
+        \ar@/_2pc/@{.>}[r] &
+        \bullet }
+$$
+
+\end{verbatim}
+
+\begin{flushright}
+
+
+$    
+    \xymatrix{
+        \bullet \ar@/^1pc/[r]
+        \ar@/_2pc/@{.>}[r] &
+        \bullet }      
+$
+ 
+
+
+
+\begin{verbatim}
+$
+    \xymatrix{
+        \bullet \ar@(r,u)[r]
+        \ar@/_2pc/@(dr,dl)[r] &
+        \bullet }
+$
+
+\end{verbatim}
+$
+    \xymatrix{
+        \bullet \ar@(r,u)[r]
+        \ar@/_2pc/@(dr,dl)[r] &
+        \bullet }
+$
+\end{flushright}
+
+
+
