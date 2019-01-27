@@ -1,13 +1,38 @@
-\section{Ovali}
+\begin{frame}[allowframebreaks, fragile]{Ovali}
+Naredba \verb|\put(x, y){\oval(a, b)[pozicija]}|
+stvara oval centriran na točki (x,y) širine \textbf{a} i visine \textbf{b}.\newline
 
-Naredba
-\verb|\put(x, y){\oval(w, h)}|
-ili
-\verb|\put(x, y){\oval(w, h)[pozicija]}|
-stvaraju oval koji je centriran na (x,y) točki i ima širinu \textbf{w} i visinu \textbf{h}. Argumenti b, t, l, r označuju dolje, gore, lijevo, desno i mogu se kombinirati. Jedinice za ovaj parametar postavljaju se po duljini \verb|\setlength{\unitlength}{1cm}|. Drugi parametar nije obavezan i uspostavlja koordinate donjeg lijevog kuta.
+Argumenti b, t, l, r u vitičastoj označuju dolje, gore, lijevo, desno i mogu se kombinirati.\newline
 
-Debljina crta se može kontrolirati uz pomoć naredbi \verb|\linethickness{''lenght''} ili sa \thinlines i \thicklines.|
-Dok \verb|\linethickness{''lenght''}| se odnosi samo na ravne crte to jest horizontalne i vertikalne \verb|\thinlines i \thicklines| se odnosi na sve vrste crta pa čak i na ovale i krugove.
+Naredba \verb|\linethickness{}| odnosi se samo na ravne crte, a \verb|\thinlines i \thicklines| na sve vrste crta, uključujući krivulje.\newpage
+
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{0.75cm}
+\begin{picture}(6,4)
+\linethickness{0.075mm}
+\multiput(0,0)(1,0){7}%
+{\line(0,1){4}}
+\multiput(0,0)(0,1){5}%
+{\line(1,0){6}}
+\thicklines
+\put(2,3){\oval(3,1.8)}
+\thinlines
+\put(3,2){\oval(3,1.8)}
+\thicklines
+\put(2,1){\oval(3,1.8)[tl]}
+\put(4,1){\oval(3,1.8)[b]}
+\put(4,3){\oval(3,1.8)[r]}
+\put(3,1.5){\oval(1.8,0.4)}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
 
 \setlength{\unitlength}{0.75cm}
 \begin{picture}(6,4)
@@ -27,29 +52,8 @@ Dok \verb|\linethickness{''lenght''}| se odnosi samo na ravne crte to jest horiz
 \put(3,1.5){\oval(1.8,0.4)}
 \end{picture}
 
-\begin{verbatim}
-\setlength{\unitlength}{0.75cm}
-\begin{picture}(6,4)
-\linethickness{0.075mm}
-\multiput(0,0)(1,0){7}%
-{\line(0,1){4}}
-\multiput(0,0)(0,1){5}%
-{\line(1,0){6}}
-\thicklines
-\put(2,3){\oval(3,1.8)}
-\thinlines
-\put(3,2){\oval(3,1.8)}
-\thicklines
-\put(2,1){\oval(3,1.8)[tl]}
-\put(4,1){\oval(3,1.8)[b]}
-\put(4,3){\oval(3,1.8)[r]}
-\put(3,1.5){\oval(1.8,0.4)}
-\end{picture}
-\end{verbatim}
+\end{column}
 
+\end{columns}
 
-\verb|\put (6,2.2) {\oval (4,2) [R]}|
-naredba će nacrtati ovalni centar u točki 4,2. Parametar \verb|[r]| nije obavezan, može se koristiti r, l, t i b za prikaz desnog, lijevog, gornjeg ili donjeg dijela ovala. Ako ga nema, nacrtat će se cijeli oval.
-
-Naredba \verb|\put(2,2.2){\circle{2}}|
-crta kružnicu centriranu u točki (2,2,2) i čiji je promjer 2.
+\end{frame}

@@ -1,11 +1,38 @@
-\section{Kombiniranje crta, točaka i teksta}
+\begin{frame}[allowframebreaks, fragile]{Kombiniranje crta, točaka i teksta}
 
-Više jednostavnih elemenata tvori složeniju sliku.
+\begin{columns}[c]
 
-\setlength{\unitlength}{0.8cm}
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{0.6cm}
 \begin{picture}(12,4)
 \thicklines
-\put(8,3.3){{\footnotesize $3$-simplex}}
+\put(8,3.3){{\footnotesize $3$-strana}}
+\put(9,3){\circle*{0.1}}
+\put(8.3,2.9){$a_2$}
+\put(8,1){\circle*{0.1}}
+\put(7.7,0.5){$a_0$}
+\put(10,1){\circle*{0.1}}
+\put(9.7,0.5){$a_1$}
+\put(11,1.66){\circle*{0.1}}
+\put(11.1,1.5){$a_3$}
+\put(9,3){\line(3,-2){2}}
+\put(10,1){\line(3,2){1}}
+\put(8,1){\line(1,0){2}}
+\put(8,1){\line(1,2){1}}
+\put(10,1){\line(-1,2){1}}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{0.6cm}
+\begin{picture}(12,4)(5,0)
+\thicklines
+\put(8,3.3){{\footnotesize $3$-strana}}
 \put(9,3){\circle*{0.1}}
 \put(8.3,2.9){$a_2$}
 \put(8,1){\circle*{0.1}}
@@ -21,44 +48,32 @@ Više jednostavnih elemenata tvori složeniju sliku.
 \put(10,1){\line(-1,2){1}}
 \end{picture}
 
-\begin{verbatim}
-\setlength{\unitlength}{0.8cm}
-\begin{picture}(12,4)
-\thicklines
-\put(8,3.3){{\footnotesize $3$-simplex}}
-\put(9,3){\circle*{0.1}}
-\put(8.3,2.9){$a_2$}
-\put(8,1){\circle*{0.1}}
-\put(7.7,0.5){$a_0$}
-\put(10,1){\circle*{0.1}}
-\put(9.7,0.5){$a_1$}
-\put(11,1.66){\circle*{0.1}}
-\put(11.1,1.5){$a_3$}
-\put(9,3){\line(3,-2){2}}
-\put(10,1){\line(3,2){1}}
-\put(8,1){\line(1,0){2}}
-\put(8,1){\line(1,2){1}}
-\put(10,1){\line(-1,2){1}}
-\end{picture}
-\end{verbatim}
+\end{column}
 
+\end{columns}
+\mbox{}
+\newpage
+\footnotesize{
+Više jednostavnih elemenata tvori složeniju sliku. U prethodnom primjeru nekoliko crta i točaka spojeno je međusobno da stvori sliku, zatim dodajemo tekst kojim obilježavamo svaki element slike. Sljedeće su naredbe korištene:\newline
 
-U ovom primjeru nekoliko crta i točaka je spojeno međusobno da stvori sliku, zatim dodajemo tekst kojime obilježavamo svaki element slike. Sljedeće su naredbe korištene:
+\verb|\thicklines|\newline
+Ovo mijenja debljinu crta, čineći ih malo debljima. Isto tako možemo koristiti \verb|\thinlines| naredbu sa suprotnim učinkom.\newline
 
-\verb|\thicklines|
-Ovo mijenja debljinu crta, čineći ih malo debljima isto tako možemo koristiti \verb|\thinlines| naredbu koja ima suprotni učinak.
+\verb|\put(8,3.3){{\footnotesize $3$-strana}}|\newline
+Tekst "3-strana" je umeće u točku (8,3,3), veličina slova je namještena na \textit{footnotesize}. Ista naredba koristi se da označi svaku točku.\newline
 
-\verb|\put(8,3.3){{\footnotesize $3$-simplex}}|
-Tekst "3-simplex" je umeće u točku (8,3,3), veličina slova je namještena na \textit{footnotesize}. Ista naredba se koristi da označi svaku točku.
+\verb|\put(9,3){\circle*{0.1}}|\newline
+Ova naredba crta puni krug koji je centriran u točki (9,3) i ima promjer 0.1. Promjer je tako malen da se kružnica koristi za označavanje točke.\newline
 
-\verb|\put(9,3){\circle*{0.1}}|
-Ova naredba crta puni krug koji je centriran u točki (9,3) i ima promjer 0.1. Promjer je tako malen da se kružnica koristi za označavanje točke.
+\verb|\put(10,1){\line(3,2){1}}|\newline
+Crta ravnu crtu čiji je početak u točki (10,1). Dužina joj je 1, a smjer (3,2). Kao što se može vidjeti, crte, to jest pravci s nagibom teži su za nacrtati od običnih crta i pravaca.}\newpage
+Vektori ili strelice mogu se isto tako korisiti u slikama, evo primjera:
 
-\verb|\put(10,1){\line(3,2){1}}|
-Crta ravnu crtu čiji početak je u točki (10,1), dužina je 1, a smjer je (3,2). Kao što se može vidjeti crte to jest pravci koji imaju nagib su teži za nacrtati od običnih crta i pravaca.
+\begin{columns}[c]
 
-Vektori ili strelice se mogu korisiti isto tako u slikama, evo primjera:
+\begin{column}{0.5\textwidth}
 
+\begin{Verbatim}[fontsize=\tiny]
 \setlength{\unitlength}{0.20mm}
 \begin{picture}(400,250)
 \put(75,10){\line(1,0){130}}
@@ -68,14 +83,18 @@ Vektori ili strelice se mogu korisiti isto tako u slikama, evo primjera:
 \put(190,200){\vector(0,-1){190}}
 \put(97,120){$\alpha$}
 \put(170,120){$\beta$}
-\put(220,195){upper state}
-\put(220,45){lower state 1}
-\put(220,5){lower state 2}
+\put(220,195){više stanje}
+\put(220,45){niže stanje 1}
+\put(220,5){niže stanje 2}
 \end{picture}
+\end{Verbatim}
 
-\begin{verbatim}
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
 \setlength{\unitlength}{0.20mm}
-\begin{picture}(400,250)
+\begin{picture}(400,250)(5,0)
 \put(75,10){\line(1,0){130}}
 \put(75,50){\line(1,0){130}}
 \put(75,200){\line(1,0){130}}
@@ -83,31 +102,13 @@ Vektori ili strelice se mogu korisiti isto tako u slikama, evo primjera:
 \put(190,200){\vector(0,-1){190}}
 \put(97,120){$\alpha$}
 \put(170,120){$\beta$}
-\put(220,195){upper state}
-\put(220,45){lower state 1}
-\put(220,5){lower state 2}
-\end{picture}
-\end{verbatim}
-
-
-\section{Bezierove krivulje}
-
-\textit{Bezierove krivulje} su posebna vrsta krivulja koje se crtaju koristeći 3 različita parametra, jedna početna točka i jedna završna, a uz to još jedna točka koja određuje koliko je krivulja "iskrivljena".
-
-\setlength{\unitlength}{0.8cm}
-\begin{picture}(10,5)
-\thicklines
-\qbezier(1,1)(5,5)(9,0.5)
-\put(2,1){{Bézier curve}}
+\put(220,195){više stanje}
+\put(220,45){niže stanje 1}
+\put(220,5){niže stanje 2}
 \end{picture}
 
-\begin{verbatim}
-\setlength{\unitlength}{0.8cm}
-\begin{picture}(10,5)
-\thicklines
-\qbezier(1,1)(5,5)(9,0.5)
-\put(2,1){{Bézier curve}}
-\end{picture}
-\end{verbatim}
+\end{column}
 
-Naredba  \verb|\qbezier| je unutar \verb|\put| naredbe. Parametri koji moraju biti određeni su početna točka, točka kontrole i završna točka.
+\end{columns}
+
+\end{frame}
