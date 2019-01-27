@@ -1,0 +1,206 @@
+\begin{frame}[allowframebreaks, fragile]{Linije}
+
+Linije se crtaju pomoću naredbe:
+\verb|\put(x, y){\line(x1, y1){duljina}}|\newline
+
+\verb|\line| naredba sadrži dva argumenta: vektor smjera i duljinu (ovaj argument je vertikalna duljina u slučaju vertikalnog segmenta, a u svim drugim slučajevima vodoravna udaljenost linije, a ne dužina samog segmenta).\newpage
+
+\small{
+Komponente pravca vektora ograničene su na cijele brojeve (\verb|−6, −5, ..., 5, 6|) i moraju biti međusobno prosti (nemaju zajedničkog djelitelja osim 1).\newline
+
+Duljina je relativna u odnosu na postavljenu duljinu \verb|\unitlength|.\newline
+
+Donja slika prikazuje svih 25 mogućih vrijednosti nagiba u prvom kvadrantu, dok naredbe prikazuju samo neke od primjera tih linija.}\newpage
+
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{5cm}
+\begin{picture}(1,1)
+\put(0,0){\line(0,1){1}}
+\put(0,0){\line(1,6){.1667}}
+\put(0,0){\line(2,3){.6667}}
+\put(0,0){\line(2,5){.4}}
+\put(0,0){\line(3,1){1}}
+\put(0,0){\line(3,4){.75}}
+\put(0,0){\line(6,5){1}}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{5cm}
+\begin{picture}(1,1)
+\put(0,0){\line(0,1){1}}
+\put(0,0){\line(1,6){.1667}}
+\put(0,0){\line(2,3){.6667}}
+\put(0,0){\line(2,5){.4}}
+\put(0,0){\line(3,1){1}}
+\put(0,0){\line(3,4){.75}}
+\put(0,0){\line(6,5){1}}
+\end{picture}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile]{Strelice}
+
+Strelice se crtaju naredbom:
+\verb|\put(x, y){\vector(x1, y1){duljina}}|\newline
+
+Za strelice su komponente vektorskog smjera još uže ograničene nego za crte, to jest na cijele brojeve (-4, -3, ..., 3, 4), te također moraju biti međusobno prosti.\newpage
+
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{0.75mm}
+\begin{picture}(60,40)
+\put(30,20){\vector(1,0){30}}
+\put(30,20){\vector(4,1){20}}
+\put(30,20){\vector(3,1){25}}
+\put(30,20){\vector(2,1){30}}
+\put(30,20){\vector(1,2){10}}
+\thicklines
+\put(30,20){\vector(-4,1){30}}
+\put(30,20){\vector(-1,4){5}}
+\thinlines
+\put(30,20){\vector(-1,-1){5}}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{0.75mm}
+\begin{picture}(60,40)
+\put(30,20){\vector(1,0){30}}
+\put(30,20){\vector(4,1){20}}
+\put(30,20){\vector(3,1){25}}
+\put(30,20){\vector(2,1){30}}
+\put(30,20){\vector(1,2){10}}
+\thicklines
+\put(30,20){\vector(-4,1){30}}
+\put(30,20){\vector(-1,4){5}}
+\thinlines
+\put(30,20){\vector(-1,-1){5}}
+\end{picture}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile]{Kružnice}
+
+Naredbom \verb|\put(x, y){\circle{promjer}}| crta se kružnica sa središtem (x, y) i promjerom opisanim u vitičastim zagradama.\newline
+
+Okruženje picture dopušta promjere do otprilike 14mm, iako nisu svi promjeri ispod te granice mogući.\newline
+
+Naredba \verb|\circle*| proizvodi diskove, odnosno ispunjene kružnice.\newline
+
+Kao i kod linija, crtanje nekih kružnica zahtijeva dodatne pakete kao npr. \textit{eepic}, \textit{pstricks}, ili \textit{tikz}.\newpage
+
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{2mm}
+\begin{picture}(60, 40)(0,5)
+\put(0,30){\circle{3}}
+\put(0,30){\circle{16}}
+\put(0,30){\circle{32}}
+\put(20,30){\circle*{1}}
+\put(20,30){\circle{4}}
+\put(20,30){\circle{9}}
+\put(5,20){\circle*{1}}
+\put(10,20){\circle*{2}}
+\put(15,20){\circle*{8}}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{2mm}
+\begin{picture}(60, 40)(0,5)
+\put(0,30){\circle{3}}
+\put(0,30){\circle{16}}
+\put(0,30){\circle{32}}
+\put(20,30){\circle*{1}}
+\put(20,30){\circle{4}}
+\put(20,30){\circle{9}}
+\put(5,20){\circle*{1}}
+\put(10,20){\circle*{2}}
+\put(15,20){\circle*{8}}
+\end{picture}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile]{Tekst i formule}
+
+Formule i tekst mogu se dodati pomoću naredbe \verb|\put| unutar vitičastih zagrada.
+
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{0.5cm}
+\begin{picture}(6,5)
+\thicklines
+\put(1,0.5){\line(2,1){3}}
+\put(4,2){\line(-2,1){2}}
+\put(2,3){\line(-2,-5){1}}
+\put(0.4,0.3){\tiny{A}}
+\put(4.35,1.9){\tiny{B}}
+\put(1.5,2.95){\tiny{C}}
+\put(3.4,2.5){\tiny{a}}
+\put(1,1.7){\tiny{b}}
+\put(2.8,1.05){\tiny{c}}
+\put(0.3,4){$P=\frac{a \cdot v_a}{2}$}
+\put(5,0.4){$P = \frac{a^2 \sin \beta \sin \gamma}{2 \sin \alpha} $}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{0.5cm}
+\begin{picture}(6,5)
+\thicklines
+\put(1,0.5){\line(2,1){3}}
+\put(4,2){\line(-2,1){2}}
+\put(2,3){\line(-2,-5){1}}
+\put(0.4,0.3){\tiny{A}}
+\put(4.35,1.9){\tiny{B}}
+\put(1.5,2.95){\tiny{C}}
+\put(3.4,2.5){\tiny{a}}
+\put(1,1.7){\tiny{b}}
+\put(2.8,1.05){\tiny{c}}
+\put(0.3,4){$P=\frac{a \cdot v_a}{2}$}
+\put(5,0.4){$P = \frac{a^2 \sin \beta \sin \gamma}{2 \sin \alpha} $}
+\end{picture}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
