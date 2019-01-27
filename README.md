@@ -1,3 +1,7 @@
-U ovoj ću grani uređivat svoj dio seminara; Xy-pic i dio Picture environment (Linije, Strelice, Kružnice, Tekst i formule).
+Lorena Pekić 40%
 
--Lorena Pekić
+Edi Seršić 40%
+
+Antony Stanić 20%
+
+Tema seminara: Izrada grafika koristeći picture i Xy-pic
