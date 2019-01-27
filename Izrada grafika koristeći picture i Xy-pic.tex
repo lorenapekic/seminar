@@ -2,10 +2,13 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[croatian]{babel}
 \usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage[all]{xy}
+\setbeamertemplate{frametitle continuation}[from second][]
 \DeclareUnicodeCharacter{2212}{-}
 \usepackage{ragged2e}
 \usepackage{apacite}
-
 
 \title{Izrada grafika koristeći picture i Xy-pic}
 \author{Lorena Pekić, Edi Seršić i Antony Stanić}
@@ -16,13 +19,17 @@
 \frame{\titlepage}
 
 \input{include/pictureuvod.tex}
+%\input{include/ANTONY: MULTIPUT I LINETHICKNESS}
 %\input{include/pictureokruzenje.tex}
-\input{include/picture.tex}
+%\input{include/diookruzenja.tex}% MAKNUTI SVE OSIM OVALA S OVE AKO NE PROMIJENI
+\input{include/pictureubac.tex}%MAKNUTI MULTIPUT
+%\input{include/xyslike.tex}
 
+\begin{frame}[shrink=20]{Literatura}
 \bibliographystyle{apalike}
-%\bibliographystyle{ieeetr}
 \bibliography{include/izvori.bib}
-\nocite{IZVOR:1,IZVOR:2,IZVOR:3,IZVOR:4,IZVOR:5,IZVOR:6,IZVOR:7}
+\nocite{IZVOR:1,IZVOR:2,IZVOR:3,IZVOR:4,IZVOR:5,IZVOR:6}
 
+\end{frame}
 
 \end{document}
