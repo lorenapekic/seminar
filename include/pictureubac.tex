@@ -1,0 +1,94 @@
+\begin{frame}[allowframebreaks, fragile]{Savebox}
+Spremanje slike u "kutiju" (savebox) čiji se sadržaj treba popločati:
+
+\begin{verbatim}
+  \newsavebox{ime}
+  \savebox{ime}(x, y)[poz]{sadržaj}
+\end{verbatim}
+
+gdje su x i y širina i visina predviđenog prostora, a poz zastavica za pozicioniranje sadržaja na stranici.\newpage
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile]{Ubacivanje slike s ponavljajućim elementima}
+
+Postavljanje slike naredbom \verb|\put| ili \verb|\multiput|:
+
+\begin{verbatim}
+	\put(x, y){\usebox{ime}}
+\end{verbatim}
+
+Ime kutije može se koristiti kao naredba, pa kasnije možemo prizvati sadržaj kutije koristeći znak \verb|\|prije imena.
+Tako se unaprijed definira izgled grafičkih elemenata koje želimo po potrebi ponavljati.\newpage
+\begin{columns}[c]
+
+\begin{column}{0.5\textwidth}
+
+\begin{Verbatim}[fontsize=\tiny]
+\setlength{\unitlength}{0.5mm}
+\begin{picture}(120,168)
+\newsavebox{\foldera}
+\savebox{\foldera}
+  (40,32)[bl]{%
+  \multiput(0,0)(0,28){2}
+    {\line(1,0){40}}
+  \multiput(0,0)(40,0){2}
+    {\line(0,1){28}}
+  \put(1,28){\oval(2,2)[tl]}
+  \put(1,29){\line(1,0){5}}
+  \put(9,29){\oval(6,6)[tl]}
+  \put(9,32){\line(1,0){8}}
+  \put(17,29){\oval(6,6)[tr]}
+}
+
+\newsavebox{\folderb}
+\savebox{\folderb}
+  (40,32)[l]{%
+  \put(8,0){\usebox{\foldera}}
+  \put(0,14){\line(1,0){8}}
+}
+
+\put(34,63){\line(0,1){65}}
+\put(14,128){\usebox{\foldera}}
+\multiput(34,86)(0,-37){2}
+{\usebox{\folderb}}
+\end{picture}
+\end{Verbatim}
+
+\end{column}
+
+\begin{column}{0.5\textwidth}%
+
+\setlength{\unitlength}{0.5mm}
+\begin{picture}(120,168)
+\newsavebox{\foldera}
+\savebox{\foldera}
+  (40,32)[bl]{%
+  \multiput(0,0)(0,28){2}
+    {\line(1,0){40}}
+  \multiput(0,0)(40,0){2}
+    {\line(0,1){28}}
+  \put(1,28){\oval(2,2)[tl]}
+  \put(1,29){\line(1,0){5}}
+  \put(9,29){\oval(6,6)[tl]}
+  \put(9,32){\line(1,0){8}}
+  \put(17,29){\oval(6,6)[tr]}
+}
+
+\newsavebox{\folderb}
+\savebox{\folderb}
+  (40,32)[l]{%
+  \put(8,0){\usebox{\foldera}}
+  \put(0,14){\line(1,0){8}}
+}
+
+\put(34,63){\line(0,1){65}}
+\put(14,128){\usebox{\foldera}}
+\multiput(34,86)(0,-37){2}
+{\usebox{\folderb}}
+\end{picture}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}

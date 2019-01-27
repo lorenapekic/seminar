@@ -1,0 +1,24 @@
+\begin{frame}[allowframebreaks, fragile]{Uvod u picture}
+Picture je okruženje za dodavanje slika u LaTeX dokumente bez upotrebe dodatnih paketa.\newline
+Stvara se naredbom:
+
+\begin{verbatim}
+	\begin{picture}(x, y)(x0, y0)
+\end{verbatim}
+
+gdje je x širina, a y visina pravokutne površine predviđene za sliku, dok se x0 i y0 koriste samo ako želimo navesti točne koordinate njenog donjeg lijevog ruba.\newpage
+Vrijednosti tih četiriju varijabli su u jedinicama \verb|\unitlength| (1 pt) koje možemo po potrebi promijeniti sljedećom naredbom:
+
+\begin{verbatim}
+	\setlength{\unitlength}{x}
+\end{verbatim}
+
+gdje x može biti vrijednost u cm, pt, in i drugim podržanim mjernim jedinicama.\newline
+
+Zatvara se naredbom:
+
+\begin{verbatim}
+	\end{picture}
+\end{verbatim}
+
+\end{frame}

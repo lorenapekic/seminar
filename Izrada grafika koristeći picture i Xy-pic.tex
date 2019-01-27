@@ -1,0 +1,38 @@
+\documentclass[17p]{beamer}
+\usepackage[utf8]{inputenc} 
+\usepackage[croatian]{babel}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage[all]{xy}
+\setbeamertemplate{frametitle continuation}[from second][]
+\DeclareUnicodeCharacter{2212}{-}
+\usepackage{ragged2e}
+\usepackage{apacite}
+
+\title{Izrada grafika koristeći picture i Xy-pic}
+\author{Lorena Pekić, Edi Seršić i Antony Stanić}
+\date{2019}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\input{include/pictureuvod.tex}
+\input{include/pictureokruzenje.tex}
+\input{include/put.tex}
+\input{include/multipointlinethicc.tex}
+\input{include/ostalookruzenje.tex}
+\input{include/pictureubac.tex}
+\input{include/ovali.tex}
+\input{include/bezier.tex}
+\input{include/xyslike.tex}
+
+\begin{frame}[shrink=20]{Literatura}
+\bibliographystyle{apalike}
+\bibliography{include/izvori.bib}
+\nocite{IZVOR:1,IZVOR:2,IZVOR:3,IZVOR:4,IZVOR:5,IZVOR:6}
+
+\end{frame}
+
+\end{document}
